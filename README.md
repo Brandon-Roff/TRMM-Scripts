@@ -42,12 +42,12 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
   - Within this folder, you'll find a selection of Bash scripts meticulously crafted for Linux systems.
   - | Script Name | Description | Link to Script |
       |-------------|-------------|-------------|
-      | `Linux Agent Update.sh` |   This script will update the TRMM agent to the latest version based on CPU Type  | [Link to Script](./Linux/TRMM%20Agent/Linux%20Agent%20Update.sh) |  
-      | `Linux Agent Version.sh` |   This script will Display TRMM agent version | [Link to Script](./Linux/TRMM%20Agent/Linux%20Agent%20Version.sh) |  
-      | `UFW_ Install and Prevision firewall.sh` |   This Script Installs UFW if not already installed, it goes on to enable it if it isn't already, then allows SSH, HTP, HTTPS and SMB ports through firewall | [Link to Script](./Linux/UFW/UFW_%20Install%20and%20Prevision%20firewall.sh) |  
-      | `Wazuh - Linux Install.sh` | Will detect OS and CPU Architecture and Install Accordingly, you'll need to to change values accordingly | [Link to Script](./Linux/Wazuh/Wazuh%20-%20Linux%20Install.sh) |  
-      | `Check Reboot Crontab.sh` |   This script will check if a reboot is scheduled in crontab for 3am every sunday, modify crontab for a diffrent time | [Link to Script](./Linux/Crontab/Check%20Reboot%20Crontab.sh) |  
-
+      | `Linux Agent Update.sh` |   This script will update the TRMM agent to the latest version based on CPU Type  | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Update.sh) |  
+      | `Linux Agent Version.sh` |   This script will Display TRMM agent version | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Version.sh) |  
+      | `UFW_ Install and Prevision firewall.sh` |   This Script Installs UFW if not already installed, it goes on to enable it if it isn't already, then allows SSH, HTP, HTTPS and SMB ports through firewall | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/UFW/UFW_%20Install%20and%20Prevision%20firewall.sh) |  
+      | `Wazuh - Linux Install.sh` | Will detect OS and CPU Architecture and Install Accordingly, you'll need to to change values accordingly | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Wazuh/Wazuh%20-%20Linux%20Install.sh) |  
+      | `Check Reboot Crontab.sh` |   This script will check if a reboot is scheduled in crontab for 3am every sunday, modify crontab for a diffrent time | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Crontab/Check%20Reboot%20Crontab.sh) |  
+      
 ## 🛠️ Scripts
 
 ### Windows
