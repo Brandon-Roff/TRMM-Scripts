@@ -47,6 +47,8 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
       | `UFW_ Install and Prevision firewall.sh` |   This Script Installs UFW if not already installed, it goes on to enable it if it isn't already, then allows SSH, HTP, HTTPS and SMB ports through firewall | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/UFW/UFW_%20Install%20and%20Prevision%20firewall.sh) |  
       | `Wazuh - Linux Install.sh` | Will detect OS and CPU Architecture and Install Accordingly, you'll need to to change values accordingly | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Wazuh/Wazuh%20-%20Linux%20Install.sh) |  
       | `Check Reboot Crontab.sh` |   This script will check if a reboot is scheduled in crontab for 3am every sunday, modify crontab for a diffrent time | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Crontab/Check%20Reboot%20Crontab.sh) |  
+      `Process Monitor.sh` |   This script lists the top CPU and memory-consuming processes, aiding in identifying resource-intensive tasks. | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Monitoring/Process%20Monitor.sh) |  
+
       
 ## 🛠️ Scripts
 
