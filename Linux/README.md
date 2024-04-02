@@ -13,7 +13,7 @@
 7. **Save** the script.
 8. **Utilize** the imported script seamlessly within TacticalRMM.
 
-## 📁 Folder Structure
+## 🛠️ Scripts
 
 ### Linux 🐧
 - **Bash**

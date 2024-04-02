@@ -13,8 +13,7 @@
 7. **Save** the script.
 8. **Utilize** the imported script seamlessly within TacticalRMM.
 
-## 📁 Folder Structure
-
+## 🛠️ Scripts
 ### Windows 🖥️
 - **Powershell**
     - This directory contains PowerShell scripts specifically curated for Windows environments.
