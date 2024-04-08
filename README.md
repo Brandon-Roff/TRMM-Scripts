@@ -48,6 +48,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
       | `Wazuh - Linux Install.sh` | Will detect OS and CPU Architecture and Install Accordingly, you'll need to to change values accordingly | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Wazuh/Wazuh%20-%20Linux%20Install.sh) |  
       | `Check Reboot Crontab.sh` |   This script will check if a reboot is scheduled in crontab for 3am every sunday, modify crontab for a diffrent time | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Crontab/Check%20Reboot%20Crontab.sh) |  
       `Process Monitor.sh` |   This script lists the top CPU and memory-consuming processes, aiding in identifying resource-intensive tasks. | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Monitoring/Process%20Monitor.sh) |  
+    | `Update.sh` | This script will attempt to update os using nala on your debain based distros if not avaliable it will install updates via basic apt package manager | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Updates/Update.sh)
 
 ## 🌟 Contributing
 
