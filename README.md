@@ -24,31 +24,35 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 
 ## 🛠️ Scripts
 
-### Windows 🖥️
+### [Windows 🖥️](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows)
 - **Powershell**
     - This directory contains PowerShell scripts specifically curated for Windows environments.
-    - | Script Name | Description | Link to Script |
+    - | Category  | Description | Link to Folder |
         |-------------|-------------|-------------|
-        | `script1.ps1` | Description of script 1 | [Link to Script](https://www.google.com) |
+        | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Tactical%20RMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Tactical%20RMM%20Agent) |
+
 
 - **Batch**
     - This directory contains batch scripts specifically curated for Windows environments.
-    - | Script Name | Description | Link to Script |
+    - | Category  | Description | Link to Folder |
         |-------------|-------------|-------------|
-        | `script1.bat` | Description of script 1 | [Link to Script](https://www.google.com) |
+ 
 
-### Linux 🐧
+### [Linux 🐧](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux)
 - **Bash**
-  - Within this folder, you'll find a selection of Bash scripts meticulously crafted for Linux systems.
-  - | Script Name | Description | Link to Script |
+  - This directory contains Bash scripts specifically curated for Linux systems.
+  - | Category  | Description | Link to Folder |
       |-------------|-------------|-------------|
-      | `Linux Agent Update.sh` |   This script will update the TRMM agent to the latest version based on CPU Type  | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Update.sh) |  
-      | `Linux Agent Version.sh` |   This script will Display TRMM agent version | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Version.sh) |  
-      | `UFW_ Install and Prevision firewall.sh` |   This Script Installs UFW if not already installed, it goes on to enable it if it isn't already, then allows SSH, HTP, HTTPS and SMB ports through firewall | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/UFW/UFW_%20Install%20and%20Prevision%20firewall.sh) |  
-      | `Wazuh - Linux Install.sh` | Will detect OS and CPU Architecture and Install Accordingly, you'll need to to change values accordingly | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Wazuh/Wazuh%20-%20Linux%20Install.sh) |  
-      | `Check Reboot Crontab.sh` |   This script will check if a reboot is scheduled in crontab for 3am every sunday, modify crontab for a diffrent time | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Crontab/Check%20Reboot%20Crontab.sh) |  
-      `Process Monitor.sh` |   This script lists the top CPU and memory-consuming processes, aiding in identifying resource-intensive tasks. | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Monitoring/Process%20Monitor.sh) |  
-    | `Update.sh` | This script will attempt to update os using nala on your debain based distros if not avaliable it will install updates via basic apt package manager | [Link to Script](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Updates/Update.sh)
+      | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) |
+      | [Security](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Security) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Security) |
+      | [OS Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) |
+      | [Crontab](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) |
+      | [Monitoring](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Monitoring) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Monitoring) |
+      | [Wazuh Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) |
+      | [Software Management](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) |
+
+
+
 
 ## 🌟 Contributing
 
