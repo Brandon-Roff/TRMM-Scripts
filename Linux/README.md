@@ -16,8 +16,7 @@
 ## 🛠️ Scripts
 
 ### Linux 🐧
-- **Bash**
-  - This directory contains Bash scripts specifically curated for Linux systems.
+
   - | Category  | Description | Link to Folder |
       |-------------|-------------|-------------|
       | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) |
