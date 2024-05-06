@@ -13,11 +13,13 @@ fi
 
 # check if the iostat command exist if not exit, if it does run the command
 if [ -x "$(command -v iostat)" ]; then
-    echo "Disk I/O Activity:"
+    echo "Disk I/O Activity:" 
     echo "------------------"
     iostat -d  1
 else
     echo "io-stat command not found"
     exit 1
 fi
+
+exit 0
 
