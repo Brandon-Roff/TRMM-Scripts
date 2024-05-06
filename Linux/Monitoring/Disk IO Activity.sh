@@ -17,7 +17,7 @@ if [ -x "$(command -v iostat)" ]; then
     echo "------------------"
     iostat -d  1
 else
-    echo "iostat command not found"
+    echo "io-stat command not found"
     exit 1
 fi
 
