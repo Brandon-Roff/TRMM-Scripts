@@ -49,8 +49,8 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
       | [OS Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) | Scripts related for the OS | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) |
       | [Crontab](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) | Scripts related to Crontab | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) |
       | [Monitoring](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Monitoring) | Scripts related to Monitoring | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Monitoring) |
-      | [Wazuh Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) |
-      | [Software Management](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) | Scripts related to the Wazuh Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) |
+      | [Wazuh Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) | Scripts related to Wazuh Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Wazuh%20Agent) |
+      | [Software Management](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) | Scripts related to Software Management | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Software%20Management) |
 
 
 
