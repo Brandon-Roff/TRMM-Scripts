@@ -31,7 +31,8 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
         |-------------|-------------|-------------|
         | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/TRMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/TRMM%20Agent) |
         | [Wazuh Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Wazuh%20Agent) | Scripts related to the Wazuh Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Wazuh%20Agent) |
-
+       | [Collector Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) | This contains a list of scripts for pulling data of Windows clients | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) |
+       
 
 - **Batch**
     - This directory contains batch scripts specifically curated for Windows environments.
@@ -45,6 +46,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
   - | Category  | Description | Link to Folder |
       |-------------|-------------|-------------|
       | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/TRMM%20Agent) |
+       | [Collector Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Collector%20Tasks) | This contains a list of scripts for pulling data of linux clients | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Collector%20Tasks) |
       | [Security](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Security) | Scripts related to Security | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Security) |
       | [OS Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) | Scripts related for the OS | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/OS%20Scripts) |
       | [Crontab](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) | Scripts related to Crontab | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Linux/Crontab) |
