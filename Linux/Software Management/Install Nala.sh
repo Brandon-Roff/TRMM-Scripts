@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#need to replace as Nala project has been archived
+
 # Update package list
 sudo apt-get update -y
 

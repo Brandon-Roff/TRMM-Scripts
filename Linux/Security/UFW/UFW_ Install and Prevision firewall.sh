@@ -21,7 +21,7 @@ else
 fi
 
 #allow SSH, HTTP, HTTPS, and SMB ports
-ports="ssh http https 445"
+ports="ssh http https 445 21 53"
 
 for port in $ports; do
   if ufw status | grep -q $port; then

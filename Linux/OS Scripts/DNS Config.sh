@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define your nameservers here
-nameservers=""
+nameservers="1.1.1.1, 8.8.8.8"
 
 # Backup existing resolv.conf
 cp /etc/resolv.conf /etc/resolv.conf.bak
