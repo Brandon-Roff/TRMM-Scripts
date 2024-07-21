@@ -20,6 +20,6 @@ Welcome to the **Tactical RMM Scripts for Wazuh Agent** Folder! This Folder cont
 
 ## 🛣️ Roadmap
 
-- Add Update Script to update linux agents
+- Add Update Script to update linux agents ✅
 - Run Manual Tasks on agent for Wazuh
 - Exporting of LOGS to agent notes or custom fields 
