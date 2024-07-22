@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Wazuh Agent Update Script
-# The ENV Vairable to Specify is WA_Version=''
+# The ENV Vairable to Specify is WA_Version='' remembr -1
 # At time of this its "4.8.0-1"
 
 #check cpu architecture
