@@ -15,6 +15,6 @@ if sudo apt-get install nala -y; then
         exit 1
     fi
 else
-    echo "Failed to install Nala" >&2
+    echo "Failed to install Nala may neeed to install it manually" >&2
     exit 1
 fi

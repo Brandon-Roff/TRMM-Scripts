@@ -9,7 +9,7 @@ ARCH=$(uname -m)
 if [ "$ARCH" = "x86_64" ]; then
         ARCH="amd64" 
         # Download and install the Wazuh agent package
-        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.0-1_amd64.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.0-1_amd64.deb
+        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.2-2_amd64.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.2-2_amd64.deb
         # Enable and start the Wazuh agent service
         sudo systemctl daemon-reload
         sudo systemctl enable wazuh-agent
@@ -17,7 +17,7 @@ if [ "$ARCH" = "x86_64" ]; then
     elif [ "$ARCH" = "aarch64" ]; then
         ARCH="arm64"
         # Download and install the Wazuh agent package
-        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.0-1_arm64.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.0-1_arm64.deb
+        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.2-2_arm64.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.2-2_arm64.deb
         # Enable and start the Wazuh agent service
         sudo systemctl daemon-reload
         sudo systemctl enable wazuh-agent
@@ -25,7 +25,7 @@ if [ "$ARCH" = "x86_64" ]; then
     elif [ "$ARCH" = "armv7l" ]; then
         ARCH="armhf"
         # Download and install the Wazuh agent package
-        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.0-1_armhf.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.0-1_armhf.deb
+        wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.2-2_armhf.deb && sudo WAZUH_MANAGER="$WazuhURL" dpkg -i ./wazuh-agent_4.8.2-2_armhf.deb
         # Enable and start the Wazuh agent service
         sudo systemctl daemon-reload
         sudo systemctl enable wazuh-agent
