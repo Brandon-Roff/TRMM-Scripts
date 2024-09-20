@@ -9,5 +9,9 @@ Welcome to the **Collector Scripts for Tactical Agent** Folder! This Folder cont
 - **Description**: This will fetch the build number on windows.
 
 
+### 2. [Sytem Uptime](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Windows/Powershell/Collector%20Scripts/SysUptime.ps1)
+
+- **Decription**: The Script Fetches and displays the system uptime
+
 
 ## 🛣️ Roadmap

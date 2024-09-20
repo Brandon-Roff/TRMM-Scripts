@@ -34,6 +34,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
        | [Collector Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) | This contains a list of scripts for pulling data of Windows clients | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) |
        | [Quick Fixes](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Quick%20Fixes) | Scripts related to Quick Fixes | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Quick%20Fixes)
        
+       
 
 - **Batch**
     - This directory contains batch scripts specifically curated for Windows environments.
