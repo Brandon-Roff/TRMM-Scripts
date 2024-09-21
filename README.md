@@ -32,8 +32,8 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
         | [Tactical RMM Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/TRMM%20Agent) | Scripts related to the Tactical RMM Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/TRMM%20Agent) |
         | [Wazuh Agent](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Wazuh%20Agent) | Scripts related to the Wazuh Agent | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Wazuh%20Agent) |
        | [Collector Scripts](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) | This contains a list of scripts for pulling data of Windows clients | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Collector%20Scripts) |
-       | [Quick Fixes](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Quick%20Fixes) | Scripts related to Quick Fixes | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Quick%20Fixes)
-       
+       | [Apps](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Apps) | This Folder contains powershell scripts to do with apps list/install/uninstall | [Link to Folder](https://github.com/Brandon-Roff/TRMM-Scripts/tree/main/Windows/Powershell/Apps)
+    
        
 
 - **Batch**
