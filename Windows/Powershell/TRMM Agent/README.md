@@ -1,17 +1,32 @@
-# 🚀 Tactical RMM Scripts for Tactical Agent
 
-Welcome to the **Tactical RMM Scripts for Tactical Agent** Folder! This Folder contains a collection of scripts designed to be run using Tactical RMM with the Tactical agent. .
+# 🤖 TRMM Agent
 
-## 📜 Scripts Overview
+Welcome to the **TRMM Agent** folder! Here you'll find PowerShell scripts for managing and auditing the Tactical RMM Agent on Windows systems.
 
-### 1. [Agent Version.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Windows/Powershell/TRMM%20Agent/Agent%20Version.ps1)
-- **Description**: This will output the Current Agent Version
+## � Folder Description
+This folder is your toolkit for:
+- Checking agent version
+- Exporting logs
+- Auditing agent status
 
+---
 
+## 📜 Script List & Descriptions
+| Script | Description |
+|--------|-------------|
+| **Agent Version.ps1** | Outputs the current Tactical RMM Agent version for audit and troubleshooting. |
 
-## 🛣️ Roadmap
+---
 
-- Exporting of LOGS to agent notes or custom fields 
-- Last updated status
-- List of agents that last connected
-- Will make Mesh/Tactical Agent stufff into this one script
+## ✨ Why Use These Scripts?
+- **Visibility:** Track agent versions and status.
+- **Automation:** Export logs and audit agent health.
+- **Reliability:** Ensure agents are up-to-date and functioning.
+
+---
+
+> 💡 **Tip:** Combine these checks with other folders for full endpoint visibility!
+
+---
+
+Happy managing! 🛡️

@@ -1,15 +1,32 @@
-# 🚀 Tactical RMM Scripts for Wazuh Agent
 
-Welcome to the **Tactical RMM Scripts for Wazuh Agent** Folder! This Folder contains a collection of scripts designed to be run using Tactical RMM with the Wazuh agent. .
+# �️ Wazuh Agent
 
-## 📜 Scripts Overview
+Welcome to the **Wazuh Agent** folder! Here you'll find PowerShell scripts for managing and auditing the Wazuh Agent on Windows systems.
 
-### 1. [Wazuh Agent Version.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Windows/Powershell/Wazuh%20Agent/Wazuh%20Agent%20Version.ps1)
-- **Description**: This will output the Current Agent Version
+## � Folder Description
+This folder is your toolkit for:
+- Checking Wazuh agent version
+- Exporting logs
+- Running manual agent tasks
 
+---
 
-## 🛣️ Roadmap
+## 📜 Script List & Descriptions
+| Script | Description |
+|--------|-------------|
+| **Wazuh Agent Version.ps1** | Outputs the current Wazuh Agent version for audit and troubleshooting. |
 
-- Add Update Script to update windows agents
-- Run Manual Tasks on agent for Wazuh
-- Exporting of LOGS to agent notes or custom fields 
+---
+
+## ✨ Why Use These Scripts?
+- **Visibility:** Track agent versions and status.
+- **Automation:** Export logs and run manual agent tasks.
+- **Security:** Ensure agents are up-to-date and functioning.
+
+---
+
+> 💡 **Tip:** Integrate with other security scripts for full endpoint protection!
+
+---
+
+Stay secure! 🔒
