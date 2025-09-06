@@ -48,6 +48,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 | Customization       | Custom bashrc and environment scripts       | [Link](Linux/Customization) |
 | Maintence           | Disk and kernel maintenance scripts         | [Link](Linux/Maintence) |
 | Monitoring          | System monitoring scripts                   | [Link](Linux/Monitoring) |
+| Network             | Network configuration and troubleshooting scripts | [Link](Linux/Network) |
 | OS Scripts          | OS configuration and update scripts         | [Link](Linux/OS%20Scripts) |
 | Security            | Security and audit scripts                  | [Link](Linux/Security) |
 | Software Management | Software install and management scripts     | [Link](Linux/Software%20Management) |
