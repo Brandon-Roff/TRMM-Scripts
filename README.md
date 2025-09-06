@@ -36,6 +36,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 | Quick Fixes         | Quick remediation scripts                   | [Link](Windows/Powershell/Quick%20Fixes) |
 | AV                  | Antivirus related scripts                   | [Link](Windows/Powershell/AV) |
 | Batch               | Batch scripts for Windows                   | [Link](Windows/Batch) |
+| Network             | Network configuration and troubleshooting scripts | [Link](Windows/Powershell/Network) |
  
 
 ### Linux 🐧
