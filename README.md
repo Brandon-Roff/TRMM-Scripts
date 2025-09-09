@@ -24,7 +24,10 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 
 ## 🛠️ Scripts
 
+
 ### Windows 🖥️
+
+#### PowerShell
 
 | Category            | Description                                 | Link |
 |---------------------|---------------------------------------------|------|
@@ -35,8 +38,13 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 | Checks              | Device and system checks                    | [Link](Windows/Powershell/Checks) |
 | Quick Fixes         | Quick remediation scripts                   | [Link](Windows/Powershell/Quick%20Fixes) |
 | AV                  | Antivirus related scripts                   | [Link](Windows/Powershell/AV) |
-| Batch               | Batch scripts for Windows                   | [Link](Windows/Batch) |
 | Network             | Network configuration and troubleshooting scripts | [Link](Windows/Powershell/Network) |
+
+#### Batch
+
+| Category | Description | Link |
+|----------|-------------|------|
+| Batch Scripts | Batch scripts for Windows (console output, admin tools, troubleshooting) | [Link](Windows/Batch/README.md) |
  
 
 ### Linux 🐧

@@ -1,4 +1,5 @@
 @echo off
 REM System Info
-systeminfo > systeminfo.txt
-REM Outputs basic system information to systeminfo.txt
+systeminfo | find "Host Name" | find "OS" | find "Memory" | find "Processor" | find "Network Card" | find "IP Address" | find "Default Gateway" | find "DNS Servers"
+
+
