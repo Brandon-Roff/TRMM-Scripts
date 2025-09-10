@@ -23,6 +23,7 @@ This folder is your toolkit for:
 | **Disk IO Activity.sh** | Monitors disk I/O activity for performance analysis. |
 | **Process Monitor.sh** | Tracks running processes and resource consumption. |
 | **RAM_Usage.sh** | Reports RAM usage and availability. |
+| **network-bandwidth-monitor.sh** | Monitors network bandwidth usage in real-time. |
 
 ---
 
