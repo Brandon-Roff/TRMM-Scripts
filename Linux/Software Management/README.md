@@ -16,6 +16,10 @@ This folder is your toolkit for:
 |--------|-------------|
 | **Install ClamAV.sh** | Installs and configures ClamAV antivirus for malware protection. |
 | **Install Nala.sh** | Installs Nala, an improved front-end for apt package management. |
+| **repo-health-check.sh** | Tests all configured repositories for connectivity and errors. |
+| **list-third-party-repos.sh** | Lists all non-default repositories and PPAs. |
+| **check-broken-packages.sh** | Checks for broken or partially installed packages. |
+| **list-snap-flatpak.sh** | Lists all installed Snap and Flatpak packages. |
 
 ---
 
