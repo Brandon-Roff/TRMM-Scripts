@@ -26,6 +26,8 @@ This folder is your go-to toolkit for:
 | Enable-Firewall.bat | Enables Windows Firewall and shows the result. |
 | Disable-Firewall.bat | Disables Windows Firewall and shows the result. |
 | Ping-Test-MultiHost.bat | Pings multiple hosts and displays the results. |
+| List-NetworkDrives.bat | Lists all mapped network drives. |
+| List-OpenNetworkConnections.bat | Lists all open network connections. |
 
 ---
 

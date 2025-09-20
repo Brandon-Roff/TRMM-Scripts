@@ -1,25 +1,18 @@
-![Windows 11 Logo](https://imgs.search.brave.com/1sP9wb_pHPu05UCX-SHcPfZ99ynhrob8zeAoLK5fka0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9lL2U2L1dp/bmRvd3NfMTFfbG9n/by5zdmcvNjQwcHgt/V2luZG93c18xMV9s/b2dvLnN2Zy5wbmc)
 
-## TacticalRMM Windows Scripts Repository
+# ⚡ PowerShell Scripts
 
-## 📥 Importing Scripts into TacticalRMM Web UI
+Welcome to the **PowerShell** folder! Here you'll find a comprehensive collection of scripts for Windows system administration, automation, troubleshooting, and reporting. All scripts output directly to the console for instant feedback.
 
-1. **Access** the TacticalRMM web interface.
-2. **Navigate** to the `Scripts` section.
-3. **Click** on `Import Script`.
-4. **Browse** for the downloaded script file.
-5. **Provide** a descriptive name and optional description.
-6. **Assign** appropriate tags for easy categorization.
-7. **Save** the script.
-8. **Utilize** the imported script seamlessly within TacticalRMM.
+## 📂 Folder Description
+This folder is your toolkit for:
+- Managing services, users, and security
+- Gathering system, startup, and network info
+- Automating routine admin tasks
+- Troubleshooting and reporting
 
-## 🛠️ Scripts
+---
 
-
-### Windows 🖥️
-
-#### PowerShell
-
+## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
 | List-Services.ps1 | Lists all running services and their status. |
@@ -61,20 +54,17 @@
 | TRMM Agent/Agent Version.ps1 | Outputs Tactical RMM Agent version. |
 | Wazuh Agent/Wazuh Agent Version.ps1 | Outputs Wazuh Agent version. |
 
-#### Batch
+---
 
-| Script | Description |
-|--------|-------------|
-| SystemInfo.bat | Displays detailed system information in the console. |
-| Flush-DNS.bat | Flushes the DNS cache and shows the result. |
-| List-NetworkInterfaces.bat | Lists all network interfaces in the console. |
-| Show-OpenPorts.bat | Lists all open ports in the console. |
-| Clear-TempFiles.bat | Deletes temp files and shows the result. |
-| List-InstalledPrograms.bat | Lists all installed programs in the console. |
-| Check-DiskSpace.bat | Checks disk space and displays the result. |
-| Restart-PrintSpooler.bat | Restarts the print spooler and shows the result. |
-| Enable-Firewall.bat | Enables Windows Firewall and shows the result. |
-| Disable-Firewall.bat | Disables Windows Firewall and shows the result. |
-| Ping-Test-MultiHost.bat | Pings multiple hosts and displays the results. |
-| List-NetworkDrives.bat | Lists all mapped network drives. |
-| List-OpenNetworkConnections.bat | Lists all open network connections. |
+## ✨ Why Use These Scripts?
+- **Automation:** Save time on routine admin tasks.
+- **Troubleshooting:** Quickly gather system, security, and network info.
+- **Simplicity:** Run, see, done!
+
+---
+
+> 💡 **Tip:** Run these scripts as administrator for best results on system-level tasks.
+
+---
+
+Happy scripting and speedy troubleshooting! 🚀
