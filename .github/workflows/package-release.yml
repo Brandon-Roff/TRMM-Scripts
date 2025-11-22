@@ -6,87 +6,120 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Override tag (for manual run diagnostics)'
+        required: false
+      dryRun:
+        description: 'Skip attaching to release'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
+
+env:
+  WINDOWS_ARCHIVE: TRMM-Windows-Scripts.zip
+  LINUX_ARCHIVE: TRMM-Linux-Scripts.zip
 
 jobs:
   build-and-package:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up PowerShell
-        uses: PowerShell/PowerShell@v2
-        with:
-          version: 'latest'
+      - name: Debug event context
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Tag Input: ${{ inputs.tag }}"
+          git tag --list --sort=-creatordate | head -n 15
+
+      - name: Resolve effective tag & previous tag
+        id: tags
+        env:
+          TAG_INPUT: ${{ github.event.inputs.tag }}
+        run: |
+          CURRENT_TAG="${GITHUB_REF#refs/tags/}"
+          if [ -n "$TAG_INPUT" ]; then CURRENT_TAG="$TAG_INPUT"; fi
+          echo "Current tag candidate: $CURRENT_TAG"
+          ALL_TAGS=$(git tag --sort=-creatordate)
+          PREV_TAG=""
+          for t in $ALL_TAGS; do
+            if [ "$t" = "$CURRENT_TAG" ]; then continue; fi
+            PREV_TAG="$t"; break
+          done
+          echo "Previous tag: $PREV_TAG"
+          echo "current_tag=$CURRENT_TAG" >> $GITHUB_OUTPUT
+          echo "previous_tag=$PREV_TAG" >> $GITHUB_OUTPUT
 
       - name: Run Windows packaging script (PowerShell Core)
         shell: pwsh
         run: |
-          ./release/Create-Windows-Release.ps1
+          $prev = '${{ steps.tags.outputs.previous_tag }}'
+          if ($prev) { ./release/Create-Windows-Release.ps1 -PreviousTag $prev } else { ./release/Create-Windows-Release.ps1 }
 
       - name: Make Linux script executable
         run: chmod +x release/create-linux-release.sh
 
       - name: Run Linux packaging script
-        run: ./release/create-linux-release.sh
+        run: |
+          prev='${{ steps.tags.outputs.previous_tag }}'
+          if [ -n "$prev" ]; then ./release/create-linux-release.sh -p "$prev"; else ./release/create-linux-release.sh; fi
 
-      - name: Compute checksums
+      - name: Compute checksums & JSON manifest
         run: |
           cd release
+          echo "Generating SHA256SUMS.txt"
+          rm -f SHA256SUMS.txt
           for f in TRMM-*Scripts.zip ReleaseNotes-*.md; do
             sha256sum "$f" >> SHA256SUMS.txt
           done
+          echo '{"generated":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","tag":"'${{ steps.tags.outputs.current_tag }}'","previous":"'${{ steps.tags.outputs.previous_tag }}'","archives":[' > manifest.json
+          first=1
+          for a in TRMM-*Scripts.zip; do
+            size=$(stat -c %s "$a")
+            if [ $first -eq 0 ]; then echo ',' >> manifest.json; fi
+            echo '{"name":"'$a'","size":'$size'}' >> manifest.json
+            first=0
+          done
+          echo '],"notes":[' >> manifest.json
+          first=1
+          for n in ReleaseNotes-*.md; do
+            size=$(stat -c %s "$n")
+            if [ $first -eq 0 ]; then echo ',' >> manifest.json; fi
+            echo '{"name":"'$n'","size":'$size'}' >> manifest.json
+            first=0
+          done
+          echo ']}' >> manifest.json
+          cat manifest.json
 
-      - name: Upload artifacts
+      - name: Upload artifacts (always)
         uses: actions/upload-artifact@v4
         with:
           name: packaged-scripts
           path: |
-            release/TRMM-Windows-Scripts.zip
+            release/${{ env.WINDOWS_ARCHIVE }}
             release/ReleaseNotes-Windows.md
-            release/TRMM-Linux-Scripts.zip
+            release/${{ env.LINUX_ARCHIVE }}
             release/ReleaseNotes-Linux.md
             release/SHA256SUMS.txt
+            release/manifest.json
 
-      - name: Attach assets to release (only if release event)
-        if: github.event_name == 'release'
+      - name: Attach assets to release
+        if: github.event_name == 'release' && github.event.inputs.dryRun != 'true'
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            release/TRMM-Windows-Scripts.zip
+            release/${{ env.WINDOWS_ARCHIVE }}
             release/ReleaseNotes-Windows.md
-            release/TRMM-Linux-Scripts.zip
+            release/${{ env.LINUX_ARCHIVE }}
             release/ReleaseNotes-Linux.md
             release/SHA256SUMS.txt
+            release/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  manifest:
-    runs-on: ubuntu-latest
-    needs: build-and-package
-    if: always()
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Generate scripts JSON manifest
-        run: |
-          echo '{"generated":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","scripts":[' > manifest.json
-          first=1
-          for f in $(git ls-files Windows/*.ps1 Windows/**/*.ps1 Windows/*.bat Windows/**/*.bat Linux/**/*.sh Linux/**/*.bash); do
-            size=$(wc -c < "$f")
-            rel="$f"
-            if [ $first -eq 0 ]; then echo ',' >> manifest.json; fi
-            echo '{"path":"'$rel'","size":'$size'}' >> manifest.json
-            first=0
-          done
-          echo ']}' >> manifest.json
-      - name: Upload manifest artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: scripts-manifest
-          path: manifest.json

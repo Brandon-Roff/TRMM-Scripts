@@ -27,9 +27,15 @@ if [ ${#SCRIPT_FILES[@]} -eq 0 ]; then echo "No Linux scripts found"; fi
 zip -q "$ARCHIVE_PATH" "${SCRIPT_FILES[@]}"
 echo "Created archive: $ARCHIVE_PATH"
 
-# Determine previous tag if not supplied
+# Determine previous tag if not supplied (exclude current if HEAD is tagged)
 if [ -z "$PREVIOUS_TAG" ]; then
-  PREVIOUS_TAG=$(git tag --sort=-creatordate | head -n1 || true)
+  CURRENT_TAG="${GITHUB_REF#refs/tags/}"
+  ALL_TAGS=$(git tag --sort=-creatordate)
+  for t in $ALL_TAGS; do
+    [ "$t" = "$CURRENT_TAG" ] && continue
+    PREVIOUS_TAG="$t"
+    break
+  done
 fi
 
 RELEASE_NOTES_PATH="$OUTPUT_DIR/ReleaseNotes-Linux.md"
@@ -37,7 +43,8 @@ RELEASE_NOTES_PATH="$OUTPUT_DIR/ReleaseNotes-Linux.md"
   echo "# Linux Scripts Release"
   echo "Generated: $(date '+%Y-%m-%d %H:%M:%S')"
   echo "Archive: $ARCHIVE_NAME"
-  echo "Previous Tag: ${PREVIOUS_TAG:-none}"\n
+  echo "Previous Tag: ${PREVIOUS_TAG:-none}"
+  echo ""
   if [ -n "$PREVIOUS_TAG" ]; then
     echo "## Changes Since $PREVIOUS_TAG"
     DIFF_LINES=$(git diff --name-status "$PREVIOUS_TAG" HEAD | grep '^\([AMRDC]\)\s\+Linux/' || true)
@@ -54,7 +61,8 @@ RELEASE_NOTES_PATH="$OUTPUT_DIR/ReleaseNotes-Linux.md"
       echo "No file changes in Linux folder since $PREVIOUS_TAG."
     fi
   else
-    echo "No previous tag found; initial release notes."\n
+  echo "No previous tag found; initial release notes."
+  echo ""
   fi
   echo "## Category Summary"
   echo "| Folder | Script Count |"
@@ -62,7 +70,8 @@ RELEASE_NOTES_PATH="$OUTPUT_DIR/ReleaseNotes-Linux.md"
   find "$LINUX_ROOT" -type f -name '*.sh' -printf '%h\n' | sed "s|$LINUX_ROOT/||" | awk 'NF' | sort | uniq -c | while read -r count folder; do
     echo "| $folder | $count |"
   done
-  echo "\n## Included Scripts"
+  echo ""
+  echo "## Included Scripts"
   echo "| Name | Relative Path | Size (KB) |"
   echo "|------|---------------|-----------|"
   for f in "${SCRIPT_FILES[@]}"; do
