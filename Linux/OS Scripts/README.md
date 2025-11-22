@@ -14,8 +14,8 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **DNS Config.sh** | Configure DNS settings for optimal network performance and reliability. |
-| **Updates/** | Contains scripts for updating the OS and installed packages. |
+| **OS - DNS Config.sh** | Applies specified DNS resolvers (env: NAMESERVERS). |
+| **Software Management - OS Update.sh** | Performs full system update (prefers Nala). |
 
 ---
 

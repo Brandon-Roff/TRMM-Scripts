@@ -1,0 +1,1 @@
+Get-MpComputerStatus | Select AntivirusEnabled, RealTimeProtectionEnabled, TamperProtectionEnabled | Format-List

@@ -1,0 +1,1 @@
+Get-Package | Where-Object { $_.ProviderName -ne 'msi' } | Select Name, Version | Format-Table

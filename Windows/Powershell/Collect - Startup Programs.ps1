@@ -1,0 +1,2 @@
+Write-Host "Registry Startup Items"; (Get-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run') | Select-Object * | Out-String
+Write-Host "User Startup Folder"; Get-ChildItem "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"

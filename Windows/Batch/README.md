@@ -15,19 +15,19 @@ This folder is your go-to toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| SystemInfo.bat | Displays detailed system information in the console. |
-| Flush-DNS.bat | Flushes the DNS cache and shows the result. |
-| List-NetworkInterfaces.bat | Lists all network interfaces in the console. |
-| Show-OpenPorts.bat | Lists all open ports in the console. |
-| Clear-TempFiles.bat | Deletes temp files and shows the result. |
-| List-InstalledPrograms.bat | Lists all installed programs in the console. |
-| Check-DiskSpace.bat | Checks disk space and displays the result. |
-| Restart-PrintSpooler.bat | Restarts the print spooler and shows the result. |
-| Enable-Firewall.bat | Enables Windows Firewall and shows the result. |
-| Disable-Firewall.bat | Disables Windows Firewall and shows the result. |
-| Ping-Test-MultiHost.bat | Pings multiple hosts and displays the results. |
-| List-NetworkDrives.bat | Lists all mapped network drives. |
-| List-OpenNetworkConnections.bat | Lists all open network connections. |
+| Collect - System Info.bat | Displays detailed system information. |
+| Maintain - Flush DNS Cache.bat | Flushes the DNS cache. |
+| Collect - Network Interfaces.bat | Lists all network interfaces. |
+| Collect - Open Ports.bat | Lists open listening ports. |
+| Maintain - Clear Temp Files.bat | Deletes temp files. |
+| Collect - Installed Programs.bat | Lists installed programs. |
+| Check - Disk Space.bat | Checks disk space usage. |
+| Maintain - Restart Print Spooler.bat | Restarts the print spooler service. |
+| Security - Enable Firewall.bat | Enables Windows Firewall. |
+| Security - Disable Firewall.bat | Disables Windows Firewall. |
+| Check - Multi Host Ping Test.bat | Connectivity test to multiple hosts. |
+| Collect - Network Drives.bat | Lists mapped network drives. |
+| Collect - Open Network Connections.bat | Lists open network connections. |
 
 ---
 

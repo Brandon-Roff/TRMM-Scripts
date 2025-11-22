@@ -4,47 +4,47 @@ Welcome to the **Collector Scripts for Tactical Agent** Folder! This Folder cont
 
 ## 📜 Scripts Overview
 
-### 1. [Check Docker is Running.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/Check%20Docker%20is%20Running.sh)
+### 1. [Check - Docker Service.sh](Linux/Collector%20Tasks/Check%20-%20Docker%20Service.sh)
 
 - **Description**: This will check if docker is running.
 - **NOTE*:* Can always add compose too if need to be.
 
 
-### 2. [Check SSH is Running.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/Check%20SSH%20is%20Running.sh)
+### 2. [Check - SSH Service.sh](Linux/Collector%20Tasks/Check%20-%20SSH%20Service.sh)
 
 - **Description**: Check if SSH is Running.
 
 
-### 3. [ClamAV Check.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/ClamAV%20Check.sh)
+### 3. [Agent - ClamAV Status.sh](Linux/Collector%20Tasks/Agent%20-%20ClamAV%20Status.sh)
 
 - **Description**: Check if Clamav/ClamScan is Running.
 
 
-### 4. [Nala Install Status.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/Nala%20Install%20Status.sh)
+### 4. [Software Management - Nala Install Status.sh](Linux/Collector%20Tasks/Software%20Management%20-%20Nala%20Install%20Status.sh)
 
 - **Description**: Check if Nala Package manager is installed if not attempt to install it.
 - **NOTE:** Worth checking there Project [here](https://gitlab.com/volian/nala).
 
 
-### 5. [SSH Port Fetch.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/SSH%20Port%20Fetch.sh)
+### 5. [Collect - SSH Port.sh](Linux/Collector%20Tasks/Collect%20-%20SSH%20Port.sh)
 
 - **Description**: Fetchs the Port for ssh, even if its not 22.
 - **NOTE**: This should be Changed as a default.
 
 
-### 6. [SSH Root Access.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/SSH%20Root%20Access.sh)
+### 6. [Security - SSH Root Access.sh](Linux/Collector%20Tasks/Security%20-%20SSH%20Root%20Access.sh)
 
 - **Description**: Checks to make sure that the root user is disabled from SSH.
 - **NOTE**: This should be done as a default.
 
 
-### 7. [UFW Status.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/UFW%20Status.sh)
+### 7. [Security - UFW Status.sh](Linux/Collector%20Tasks/Security%20-%20UFW%20Status.sh)
 
 - **Description**: Checks to see active status of UFW.
 - **NOTE**: This should Setup as a default. [here](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Security/UFW/UFW_%20Install%20and%20Prevision%20firewall.sh) is a script to install and preprovision your server with UFW
 
 
-### 8. [Unattended Upgrades.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/Collector%20Tasks/Unattended%20Upgrades.sh)
+### 8. [Software Management - Unattended Upgrades Status.sh](Linux/Collector%20Tasks/Software%20Management%20-%20Unattended%20Upgrades%20Status.sh)
 
 - **Description**: Checks to see if unatended upgrades is installed if not try to install it
 - **NOTE**: This should be done as a default.

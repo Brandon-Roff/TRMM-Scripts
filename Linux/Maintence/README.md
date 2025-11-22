@@ -1,7 +1,7 @@
 
-# 🧹 Maintence
+# 🧹 Maintenance
 
-Welcome to the **Maintence** folder! Here you'll find scripts to keep your Linux systems clean, efficient, and up-to-date.
+Welcome to the **Maintenance** folder! Here you'll find scripts to keep your Linux systems clean, efficient, and up-to-date.
 
 ## 📂 Folder Description
 This folder is your toolkit for:
@@ -14,9 +14,9 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Disk Clean.sh** | Cleans up unnecessary files and frees disk space. |
-| **Docker-Clean.sh** | Removes unused Docker images, containers, and volumes to reclaim space. |
-| **Kernel Prune.sh** | Prunes old kernels to keep your system lean and secure. |
+| **Maintain - Disk Clean.sh** | Cleans up caches, temp files, logs, and old journals. |
+| **Maintain - Docker Clean.sh** | Removes unused Docker containers, images, networks, volumes. |
+| **Maintain - Kernel Prune.sh** | Removes old kernels keeping only the latest N. |
 
 ---
 

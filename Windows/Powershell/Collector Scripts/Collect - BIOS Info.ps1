@@ -1,0 +1,1 @@
+Try { $b=Get-CimInstance Win32_BIOS; if($b){ Write-Host "=== BIOS ==="; $b | Select Status, Manufacturer, SMBIOSBIOSVersion | Format-List; Exit 0 } else { Write-Host "No BIOS info"; Exit 2 } } Catch { Write-Host "BIOS query failed: $($_.Exception.Message)"; Exit 1 }

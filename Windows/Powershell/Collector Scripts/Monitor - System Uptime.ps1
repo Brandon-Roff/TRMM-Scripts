@@ -1,0 +1,1 @@
+((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime) | Select @{N='UptimeHours';E={[math]::Round($_.TotalHours,2)}} | Format-Table

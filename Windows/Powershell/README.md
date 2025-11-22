@@ -15,30 +15,30 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| List-Services.ps1 | Lists all running services and their status. |
-| List-LocalUsersAndGroups.ps1 | Exports all local user accounts and their group memberships. |
-| Check-BitLockerStatus.ps1 | Checks BitLocker status on all drives. |
-| List-StartupPrograms.ps1 | Lists all startup programs (registry and Startup folder). |
-| Clear-AllPrintQueues.ps1 | Clears all print queues on the system. |
+| Collect - Services List.ps1 | Lists all running services and their status. |
+| Collect - Local Users And Groups.ps1 | Exports all local user accounts and group memberships. |
+| Security - BitLocker Status.ps1 | Checks BitLocker status on all drives. |
+| Collect - Startup Programs.ps1 | Lists startup programs (registry + folder). |
+| Maintain - Clear All Print Queues.ps1 | Clears all print queues and restarts spooler. |
 | Apps/Install-MSI.ps1 | Installs MSI applications. |
 | Apps/Software-List.ps1 | Lists installed software. |
-| Checks/Check-Domain-Connection.ps1 | Checks if device is joined to a domain. |
-| Checks/Check-Group-Policy-Compliacnce.ps1 | Audits group policy compliance. |
-| Checks/Device Check_ Software Install - Reports new installs.ps1 | Reports newly installed software. |
-| Checks/Device Check_ Windows Firewall - Check Status.ps1 | Checks Windows Firewall status. |
-| Checks/Device Check_Backup Software.ps1 | Checks for backup software. |
-| Checks/Device Check_BSOD Detect.ps1 | Detects recent BSOD events. |
-| Checks/Device Check_Pending 3rd Party Updates.ps1 | Detects pending 3rd party updates. |
-| Checks/Device Check_Recently Installed.ps1 | Lists recently installed applications. |
-| Checks/Device Check_TPM Status & BitLocker Readiness.ps1 | Checks TPM and BitLocker readiness. |
-| Checks/Device Info_ System Uptime [WIN].ps1 | Reports system uptime. |
-| Collector Scripts/BIOS - Check Info.ps1 | Retrieves BIOS information. |
-| Collector Scripts/DomainFetch.ps1 | Collects domain membership info. |
-| Collector Scripts/Fetch_ Winget Source Status.ps1 | Checks Winget source status. |
-| Collector Scripts/Generate-Defender-Score.ps1 | Generates Windows Defender security score. |
-| Collector Scripts/Installed Programs on Device.ps1 | Lists all installed programs. |
-| Collector Scripts/OS Build.ps1 | Fetches Windows OS build number. |
-| Collector Scripts/SysUptime.ps1 | Reports system uptime. |
+| Checks/Check - Domain Connection.ps1 | Verifies domain connectivity. |
+| Checks/Audit - Group Policy Compliance.ps1 | Audits GPO application and links. |
+| Checks/Audit - Recent Software Installs.ps1 | Reports most recent software installs. |
+| Checks/Security - Windows Firewall Status.ps1 | Checks Windows Firewall profile status. |
+| Checks/Check - Backup Software Presence.ps1 | Detects installed backup solutions. |
+| Checks/Check - Recent BSOD Events.ps1 | Lists recent BSOD-related events. |
+| Checks/Check - Pending Third Party Updates.ps1 | Lists packages that may need updates. |
+| Checks/Collect - Recently Installed Programs.ps1 | Inventory of recently installed programs. |
+| Checks/Security - TPM BitLocker Readiness.ps1 | TPM presence & BitLocker readiness. |
+| Checks/Monitor - System Uptime.ps1 | System uptime (days). |
+| Collector Scripts/Collect - BIOS Info.ps1 | Retrieves BIOS information. |
+| Collector Scripts/Collect - Domain Membership.ps1 | Domain membership and role. |
+| Collector Scripts/Check - Winget Source Status.ps1 | Verifies winget source availability. |
+| Collector Scripts/Audit - Defender Configuration Score.ps1 | Defender protection configuration snapshot. |
+| Collector Scripts/Collect - Installed Programs.ps1 | Full installed programs list. |
+| Collector Scripts/Collect - OS Build.ps1 | OS build details. |
+| Collector Scripts/Monitor - System Uptime.ps1 | Uptime (hours). |
 | Network/Check-DuplicateIPs.ps1 | Checks for duplicate IPs. |
 | Network/Disable-IPv6.ps1 | Disables IPv6 on all interfaces. |
 | Network/List-NetworkAdapters.ps1 | Lists all network adapters and status. |
@@ -49,8 +49,8 @@ This folder is your toolkit for:
 | Network/Show-Interfaces.ps1 | Lists active network interfaces. |
 | Network/Show-Routes.ps1 | Displays routing table. |
 | Network/Test-Internet.ps1 | Tests internet connectivity. |
-| Quick Fixes/Clean-PrintQueuesAndRestartSpooler.ps1 | Cleans print queues and restarts spooler. |
-| Quick Fixes/Disable-RdpUdpTransport.ps1 | Disables RDP UDP transport. |
+| Quick Fixes/Maintain - Clean Print Queues And Restart Spooler.ps1 | Cleans print queues & restarts spooler. |
+| Quick Fixes/Security - Disable RDP UDP Transport.ps1 | Hardens RDP transport settings. |
 | TRMM Agent/Agent Version.ps1 | Outputs Tactical RMM Agent version. |
 | Wazuh Agent/Wazuh Agent Version.ps1 | Outputs Wazuh Agent version. |
 

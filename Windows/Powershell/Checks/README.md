@@ -17,16 +17,16 @@ Whether you're a sysadmin, MSP, or IT enthusiast, these scripts will help you ke
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Check-Domain-Connection.ps1** | Checks if the device is properly joined to a domain and can communicate with domain controllers. |
-| **Check-Group-Policy-Compliacnce.ps1** | Audits group policy compliance to ensure required policies are applied. |
-| **Device Check_ Software Install - Reports new installs.ps1** | Reports any newly installed software since the last scan, helping track changes and potential risks. |
-| **Device Check_ Windows Firewall - Check Status.ps1** | Verifies the status of Windows Firewall and reports if it's disabled or misconfigured. |
-| **Device Check_Backup Software.ps1** | Checks for the presence and status of backup software to ensure data protection. |
-| **Device Check_BSOD Detect.ps1** | Scans for recent Blue Screen of Death (BSOD) events and provides troubleshooting info. |
-| **Device Check_Pending 3rd Party Updates.ps1** | Detects pending updates for third-party applications to keep systems secure. |
-| **Device Check_Recently Installed.ps1** | Lists recently installed applications for audit and review. |
-| **Device Check_TPM Status & BitLocker Readiness.ps1** | Checks TPM status and BitLocker readiness for device encryption compliance. |
-| **Device Info_ System Uptime [WIN].ps1** | Reports system uptime to help identify stability and maintenance needs. |
+| **Check - Domain Connection.ps1** | Verifies domain connectivity and domain controller accessibility. |
+| **Audit - Group Policy Compliance.ps1** | Audits group policy compliance to ensure required policies are applied. |
+| **Audit - Recent Software Installs.ps1** | Reports newly installed software since last scan. |
+| **Security - Windows Firewall Status.ps1** | Verifies Windows Firewall profile status. |
+| **Check - Backup Software Presence.ps1** | Detects installed backup software. |
+| **Check - Recent BSOD Events.ps1** | Lists recent BSOD-related events. |
+| **Check - Pending Third Party Updates.ps1** | Lists non-MSI packages that may need updates. |
+| **Collect - Recently Installed Programs.ps1** | Inventory of recently installed programs. |
+| **Security - TPM BitLocker Readiness.ps1** | TPM status & BitLocker readiness. |
+| **Monitor - System Uptime.ps1** | Reports system uptime (days). |
 
 ---
 

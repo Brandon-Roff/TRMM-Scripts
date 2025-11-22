@@ -1,0 +1,1 @@
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Sort-Object InstallDate -Descending | Select DisplayName, InstallDate -First 25 | Format-Table

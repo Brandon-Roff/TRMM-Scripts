@@ -1,0 +1,1 @@
+Get-BitLockerVolume | Select-Object MountPoint, VolumeStatus, ProtectionStatus, EncryptionMethod | Format-Table -AutoSize

@@ -1,0 +1,1 @@
+Get-WinEvent -FilterHashtable @{LogName='System'; ProviderName='Microsoft-Windows-WER-SystemErrorReporting'; StartTime=(Get-Date).AddDays(-7)} | Select TimeCreated, Id, LevelDisplayName | Format-Table -AutoSize

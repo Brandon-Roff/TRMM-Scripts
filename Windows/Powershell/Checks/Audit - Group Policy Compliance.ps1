@@ -1,0 +1,1 @@
+gpresult /R | Select-String "Applied Group Policy Objects" -Context 0,20

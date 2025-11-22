@@ -22,30 +22,30 @@
 
 | Script | Description |
 |--------|-------------|
-| List-Services.ps1 | Lists all running services and their status. |
-| List-LocalUsersAndGroups.ps1 | Exports all local user accounts and their group memberships. |
-| Check-BitLockerStatus.ps1 | Checks BitLocker status on all drives. |
-| List-StartupPrograms.ps1 | Lists all startup programs (registry and Startup folder). |
-| Clear-AllPrintQueues.ps1 | Clears all print queues on the system. |
+| Collect - Services List.ps1 | Lists all running services and their status. |
+| Collect - Local Users And Groups.ps1 | Exports all local user accounts and their group memberships. |
+| Security - BitLocker Status.ps1 | Checks BitLocker status on all drives. |
+| Collect - Startup Programs.ps1 | Lists all startup programs (registry and Startup folder). |
+| Maintain - Clear All Print Queues.ps1 | Clears all print queues on the system. |
 | Apps/Install-MSI.ps1 | Installs MSI applications. |
 | Apps/Software-List.ps1 | Lists installed software. |
-| Checks/Check-Domain-Connection.ps1 | Checks if device is joined to a domain. |
-| Checks/Check-Group-Policy-Compliacnce.ps1 | Audits group policy compliance. |
-| Checks/Device Check_ Software Install - Reports new installs.ps1 | Reports newly installed software. |
-| Checks/Device Check_ Windows Firewall - Check Status.ps1 | Checks Windows Firewall status. |
-| Checks/Device Check_Backup Software.ps1 | Checks for backup software. |
-| Checks/Device Check_BSOD Detect.ps1 | Detects recent BSOD events. |
-| Checks/Device Check_Pending 3rd Party Updates.ps1 | Detects pending 3rd party updates. |
-| Checks/Device Check_Recently Installed.ps1 | Lists recently installed applications. |
-| Checks/Device Check_TPM Status & BitLocker Readiness.ps1 | Checks TPM and BitLocker readiness. |
-| Checks/Device Info_ System Uptime [WIN].ps1 | Reports system uptime. |
-| Collector Scripts/BIOS - Check Info.ps1 | Retrieves BIOS information. |
-| Collector Scripts/DomainFetch.ps1 | Collects domain membership info. |
-| Collector Scripts/Fetch_ Winget Source Status.ps1 | Checks Winget source status. |
-| Collector Scripts/Generate-Defender-Score.ps1 | Generates Windows Defender security score. |
-| Collector Scripts/Installed Programs on Device.ps1 | Lists all installed programs. |
-| Collector Scripts/OS Build.ps1 | Fetches Windows OS build number. |
-| Collector Scripts/SysUptime.ps1 | Reports system uptime. |
+| Checks/Check - Domain Connection.ps1 | Verifies domain connectivity. |
+| Checks/Audit - Group Policy Compliance.ps1 | Audits group policy compliance. |
+| Checks/Audit - Recent Software Installs.ps1 | Reports newly installed software. |
+| Checks/Security - Windows Firewall Status.ps1 | Checks Windows Firewall status. |
+| Checks/Check - Backup Software Presence.ps1 | Checks for backup software. |
+| Checks/Check - Recent BSOD Events.ps1 | Detects recent BSOD events. |
+| Checks/Check - Pending Third Party Updates.ps1 | Detects pending 3rd party updates. |
+| Checks/Collect - Recently Installed Programs.ps1 | Lists recently installed applications. |
+| Checks/Security - TPM BitLocker Readiness.ps1 | Checks TPM and BitLocker readiness. |
+| Checks/Monitor - System Uptime.ps1 | Reports system uptime. |
+| Collector Scripts/Collect - BIOS Info.ps1 | Retrieves BIOS information. |
+| Collector Scripts/Collect - Domain Membership.ps1 | Collects domain membership info. |
+| Collector Scripts/Check - Winget Source Status.ps1 | Checks Winget source status. |
+| Collector Scripts/Audit - Defender Configuration Score.ps1 | Generates Windows Defender security score. |
+| Collector Scripts/Collect - Installed Programs.ps1 | Lists all installed programs. |
+| Collector Scripts/Collect - OS Build.ps1 | Fetches Windows OS build number. |
+| Collector Scripts/Monitor - System Uptime.ps1 | Reports system uptime. |
 | Network/Check-DuplicateIPs.ps1 | Checks for duplicate IPs. |
 | Network/Disable-IPv6.ps1 | Disables IPv6 on all interfaces. |
 | Network/List-NetworkAdapters.ps1 | Lists all network adapters and status. |
@@ -56,8 +56,8 @@
 | Network/Show-Interfaces.ps1 | Lists active network interfaces. |
 | Network/Show-Routes.ps1 | Displays routing table. |
 | Network/Test-Internet.ps1 | Tests internet connectivity. |
-| Quick Fixes/Clean-PrintQueuesAndRestartSpooler.ps1 | Cleans print queues and restarts spooler. |
-| Quick Fixes/Disable-RdpUdpTransport.ps1 | Disables RDP UDP transport. |
+| Quick Fixes/Maintain - Clean Print Queues And Restart Spooler.ps1 | Cleans print queues and restarts spooler. |
+| Quick Fixes/Security - Disable RDP UDP Transport.ps1 | Disables RDP UDP transport. |
 | TRMM Agent/Agent Version.ps1 | Outputs Tactical RMM Agent version. |
 | Wazuh Agent/Wazuh Agent Version.ps1 | Outputs Wazuh Agent version. |
 
@@ -65,16 +65,16 @@
 
 | Script | Description |
 |--------|-------------|
-| SystemInfo.bat | Displays detailed system information in the console. |
-| Flush-DNS.bat | Flushes the DNS cache and shows the result. |
-| List-NetworkInterfaces.bat | Lists all network interfaces in the console. |
-| Show-OpenPorts.bat | Lists all open ports in the console. |
-| Clear-TempFiles.bat | Deletes temp files and shows the result. |
-| List-InstalledPrograms.bat | Lists all installed programs in the console. |
-| Check-DiskSpace.bat | Checks disk space and displays the result. |
-| Restart-PrintSpooler.bat | Restarts the print spooler and shows the result. |
-| Enable-Firewall.bat | Enables Windows Firewall and shows the result. |
-| Disable-Firewall.bat | Disables Windows Firewall and shows the result. |
-| Ping-Test-MultiHost.bat | Pings multiple hosts and displays the results. |
-| List-NetworkDrives.bat | Lists all mapped network drives. |
-| List-OpenNetworkConnections.bat | Lists all open network connections. |
+| Collect - System Info.bat | Displays detailed system information. |
+| Maintain - Flush DNS Cache.bat | Flushes the DNS cache. |
+| Collect - Network Interfaces.bat | Lists all network interfaces. |
+| Collect - Open Ports.bat | Lists all open ports. |
+| Maintain - Clear Temp Files.bat | Deletes temp files. |
+| Collect - Installed Programs.bat | Lists all installed programs. |
+| Check - Disk Space.bat | Checks disk space usage. |
+| Maintain - Restart Print Spooler.bat | Restarts the print spooler. |
+| Security - Enable Firewall.bat | Enables Windows Firewall. |
+| Security - Disable Firewall.bat | Disables Windows Firewall. |
+| Check - Multi Host Ping Test.bat | Pings multiple hosts. |
+| Collect - Network Drives.bat | Lists all mapped network drives. |
+| Collect - Open Network Connections.bat | Lists all open network connections. |

@@ -1,4 +1,4 @@
-[![TRMM LOGO](https://docs.tacticalrmm.com/images/onit.ico)](https://docs.tacticalrmm.com/)
+continue[![TRMM LOGO](https://docs.tacticalrmm.com/images/onit.ico)](https://docs.tacticalrmm.com/)
 
 # TacticalRMM Scripts Repository
 
@@ -55,7 +55,7 @@ Welcome to the TacticalRMM Scripts repository! Here, you'll discover an array of
 | Collector Tasks     | Data collection scripts for Linux clients   | [Link](Linux/Collector%20Tasks) |
 | Crontab             | Crontab related scripts                     | [Link](Linux/Crontab) |
 | Customization       | Custom bashrc and environment scripts       | [Link](Linux/Customization) |
-| Maintence           | Disk and kernel maintenance scripts         | [Link](Linux/Maintence) |
+| Maintenance         | Disk and kernel maintenance scripts         | [Link](Linux/Maintenance) |
 | Monitoring          | System monitoring scripts                   | [Link](Linux/Monitoring) |
 | Network             | Network configuration and troubleshooting scripts | [Link](Linux/Network) |
 | OS Scripts          | OS configuration and update scripts         | [Link](Linux/OS%20Scripts) |
@@ -83,5 +83,9 @@ The scripts provided herein are designed for use at your discretion and risk. Wh
 
 - [TacticalRMM Project Repo](https://github.com/amidaware/tacticalrmm)
 - [TacticalRMM Project Documentation](https://docs.tacticalrmm.com/)
+
+### 📐 Naming Convention
+
+Scripts follow: `Category - Descriptive Title.ext`. Key categories: Check, Monitor, Audit, Collect, Software Management, Security, Network, Agent, Maintain, Customize, Cron, Image. See `NAMING-CONVENTION.md` for details and current rename batches.
 
 Happy scripting! 🌈

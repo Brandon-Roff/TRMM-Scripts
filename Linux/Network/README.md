@@ -13,18 +13,18 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| disable-ipv6.sh | Disables IPv6 on all interfaces (runtime and persistent) for enhanced compatibility and security. |
-| show-dns.sh     | Outputs current DNS configuration for all interfaces, including /etc/resolv.conf and common network managers. |
-| list-docker-networks.sh | Lists all Docker networks and inspects their details for container networking troubleshooting. |
-| test-internet.sh | Tests internet connectivity by pinging common hosts (8.8.8.8, 1.1.1.1, google.com). |
-| show-interfaces.sh | Lists all active network interfaces and their IP addresses. |
-| port-scan.sh | Scans open ports on localhost or a target using ss or nmap. |
-| reset-interfaces.sh | Resets all network interfaces by bringing them down and up. |
-| show-routes.sh | Displays the current routing table. |
-| check-duplicate-ips.sh | Checks for duplicate IP addresses on the local network using arping. |
-| speed-test.sh | Runs a speed test using speedtest-cli. |
-| firewall-status.sh | Shows firewall status for UFW, firewalld, or iptables. |
-| show-arp.sh | Displays the ARP table for local network mapping. |
+| **Network - Disable IPv6.sh** | Disables IPv6 on all interfaces (runtime & persistent). |
+| **Network - Show DNS.sh** | Displays DNS configuration from multiple sources. |
+| **Network - Docker Networks Inspect.sh** | Lists & inspects Docker networks. |
+| **Check - Internet Connectivity.sh** | Tests connectivity to common public hosts. |
+| **Network - Interfaces Summary.sh** | Lists active interfaces and IPs. |
+| **Network - Port Scan.sh** | Local ss scan or remote nmap scan. |
+| **Network - Reset Interfaces.sh** | Cycles all non-loopback interfaces. |
+| **Network - Routes.sh** | Shows current routing table. |
+| **Check - Duplicate IPs.sh** | Detects duplicate IPs via ARP probes. |
+| **Check - Speed Test.sh** | Runs a speedtest-cli bandwidth test. |
+| **Security - Firewall Status.sh** | Shows firewall status (UFW/firewalld/iptables). |
+| **Network - ARP Table.sh** | Displays ARP table entries. |
 
 
 ---

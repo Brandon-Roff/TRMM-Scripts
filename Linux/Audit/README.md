@@ -14,7 +14,7 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Audit_ Proxmox VM_LXC Inventory Script.sh** | Generates a detailed inventory of all VMs and LXC containers in your Proxmox environment. |
+| **Audit - Proxmox VM LXC Inventory.sh** | Generates a detailed inventory of all VMs and LXC containers in Proxmox. |
 
 ---
 

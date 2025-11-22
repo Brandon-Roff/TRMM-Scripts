@@ -13,24 +13,24 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Check - DiskSpace.sh** | Monitors disk space usage and alerts when running low. |
-| **Check - MeshAgent_is_running.sh** | Checks if MeshAgent is running for remote management. |
-| **Check - Remotely_is_running.sh** | Verifies Remotely agent status for remote access. |
-| **Check - Patchmon Agent is installed.sh** | Checks if Patchmon Agent is installed and whether its systemd service is active. |
-| **Check - SwapSpace.sh** | Monitors swap space usage and availability. |
-| **Check - Wazuh_is_running.sh** | Checks if Wazuh agent is running for security monitoring. |
-| **CPU_Usage.sh** | Reports CPU usage statistics. |
-| **Disk IO Activity.sh** | Monitors disk I/O activity for performance analysis. |
-| **Process Monitor.sh** | Tracks running processes and resource consumption. |
-| **RAM_Usage.sh** | Reports RAM usage and availability. |
-| **network-bandwidth-monitor.sh** | Monitors network bandwidth usage in real-time. |
-| **uptime-trend.sh** | Tracks uptime samples to detect frequent reboots over last 24h (env: UPTIME_LOG_PATH, REBOOT_THRESHOLD). |
-| **dns-resolution-latency.sh** | Measures DNS resolution latency for configured hosts and alerts on slow/unresolved (env: HOSTS, DNS_LATENCY_WARN). |
-| **journald-error-rate.sh** | Counts high-priority (err+) journal entries in last hour to spot systemic issues (env: ERROR_RATE_WARN). |
-| **orphan-process-check.sh** | Detects orphaned (PPID=1) and zombie processes (env: ORPHAN_WARN, ZOMBIE_WARN). |
-| **cron-integrity-monitor.sh** | Hashes system/user crontabs to detect unauthorized changes (env: CRON_BASELINE, CRON_REFRESH). |
-| **docker-container-health-summary.sh** | Summarizes container health & restart counts (env: UNHEALTHY_WARN, RESTART_WARN). |
-| **image-staleness-report.sh** | Reports stale & dangling Docker images by age threshold (env: IMAGE_STALE_DAYS, IMAGE_STALE_WARN). |
+| **Check - Disk Space.sh** | Monitors disk space usage and alerts when running low. |
+| **Agent - MeshAgent Status.sh** | Checks if MeshAgent is running and attempts restart if stopped. |
+| **Agent - Remotely Status.sh** | Verifies Remotely agent status and attempts restart if stopped. |
+| **Agent - Patchmon Status.sh** | Determines Patchmon install & service state. |
+| **Monitor - Swap Usage.sh** | Monitors swap usage percentage with simple threshold. |
+| **Agent - Wazuh Status.sh** | Checks Wazuh agent state and attempts restart if stopped. |
+| **Monitor - CPU Usage.sh** | Reports CPU usage statistics with tiered exit codes. |
+| **Monitor - Disk IO Activity.sh** | Streams disk I/O activity for performance analysis. |
+| **Monitor - Process Snapshot.sh** | Shows top CPU and memory processes. |
+| **Monitor - RAM Usage.sh** | Reports RAM usage with alert thresholds. |
+| **Monitor - Network Bandwidth.sh** | Monitors instantaneous network bandwidth usage. |
+| **Monitor - Uptime Trend.sh** | Tracks uptime to detect frequent reboots (env: UPTIME_LOG_PATH, REBOOT_THRESHOLD). |
+| **Check - DNS Resolution Latency.sh** | Measures DNS resolution latency (env: HOSTS, DNS_LATENCY_WARN). |
+| **Monitor - Journald Error Rate.sh** | Counts high-priority journal entries (env: ERROR_RATE_WARN). |
+| **Check - Orphan Zombie Processes.sh** | Detects orphaned and zombie processes (env: ORPHAN_WARN, ZOMBIE_WARN). |
+| **Audit - Cron Integrity.sh** | Hashes cron sources to detect unauthorized changes (env: CRON_BASELINE, CRON_REFRESH). |
+| **Monitor - Docker Container Health.sh** | Summarizes container health & restart counts (env: UNHEALTHY_WARN, RESTART_WARN). |
+| **Image - Stale Images Report.sh** | Reports stale & dangling Docker images (env: IMAGE_STALE_DAYS, IMAGE_STALE_WARN). |
 
 ---
 

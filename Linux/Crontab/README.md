@@ -14,9 +14,9 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Check - ClamScan Crontab.sh** | Verifies that ClamAV scans are scheduled and running via crontab. |
-| **Check Nala Update Crontab.sh** | Ensures Nala package updates are scheduled for regular maintenance. |
-| **Check Reboot Crontab.sh** | Checks if system reboots are scheduled and properly configured. |
+| **Cron - ClamScan Entry.sh** | Verifies ClamAV scan entry exists (reports existing line). |
+| **Cron - Nala Update Entry.sh** | Ensures weekly Nala upgrade entry exists (adds if missing). |
+| **Cron - Weekly Reboot Entry.sh** | Adds weekly reboot schedule if absent. |
 
 ---
 

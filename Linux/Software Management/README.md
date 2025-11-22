@@ -14,12 +14,12 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Install ClamAV.sh** | Installs and configures ClamAV antivirus for malware protection. |
-| **Install Nala.sh** | Installs Nala, an improved front-end for apt package management. |
-| **repo-health-check.sh** | Tests all configured repositories for connectivity and errors. |
-| **list-third-party-repos.sh** | Lists all non-default repositories and PPAs. |
-| **check-broken-packages.sh** | Checks for broken or partially installed packages. |
-| **list-snap-flatpak.sh** | Lists all installed Snap and Flatpak packages. |
+| **Software Management - Install ClamAV.sh** | Installs ClamAV antivirus. |
+| **Software Management - Install Nala.sh** | Installs Nala apt front-end. |
+| **Software Management - Repo Health Check.sh** | Tests repositories for connectivity/errors. |
+| **Software Management - Third Party Repos List.sh** | Lists non-default APT repositories. |
+| **Software Management - Broken Packages Check.sh** | Checks for broken packages. |
+| **Software Management - List Snap Flatpak.sh** | Lists Snap and Flatpak packages. |
 
 ---
 

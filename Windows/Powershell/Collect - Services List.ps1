@@ -1,0 +1,1 @@
+Get-Service | Select-Object Name, Status, DisplayName | Format-Table -AutoSize

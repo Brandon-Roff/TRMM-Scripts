@@ -1,0 +1,1 @@
+Get-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion' | Select ProductName, ReleaseId, CurrentBuild, CurrentBuildNumber | Format-List

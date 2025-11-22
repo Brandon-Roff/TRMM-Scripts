@@ -1,0 +1,1 @@
+$cs = Get-CimInstance Win32_ComputerSystem; Write-Host "Domain: $($cs.Domain)"; Write-Host "Role: $($cs.DomainRole)"

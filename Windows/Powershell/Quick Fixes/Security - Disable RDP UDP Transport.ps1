@@ -1,0 +1,1 @@
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name 'DisableUdpTransport' -PropertyType DWord -Value 1 -Force | Out-Null; Write-Host "RDP UDP transport disabled."

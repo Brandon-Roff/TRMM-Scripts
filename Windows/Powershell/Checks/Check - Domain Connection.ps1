@@ -1,0 +1,2 @@
+ $domain = (Get-WmiObject Win32_ComputerSystem).Domain
+try { $dc = (Get-ADDomainController -Domain $domain -Discover -ErrorAction Stop).Name; Write-Host "AD Domain $domain accessible (DC: $dc)"; Exit 0 } catch { Write-Host "Failed domain access: $domain"; Exit 1 }

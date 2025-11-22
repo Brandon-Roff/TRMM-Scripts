@@ -4,12 +4,12 @@ Welcome to the **Tactical RMM Scripts for Tactical Agent** Folder! This Folder c
 
 ## 📜 Scripts Overview
 
-### 1. [Linux Agent Version.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Version.sh)
+### 1. [Agent - TRMM Version.sh](Linux/TRMM%20Agent/Agent%20-%20TRMM%20Version.sh)
 - **Description**: This will output the Current Agent Version
 
 
 
-### 2. [Linux Agent Update.sh](https://github.com/Brandon-Roff/TRMM-Scripts/blob/main/Linux/TRMM%20Agent/Linux%20Agent%20Update.sh)
+### 2. [Agent - TRMM Update.sh](Linux/TRMM%20Agent/Agent%20-%20TRMM%20Update.sh)
 - **Description**: Updates the Linux Agents based on cpu architecture 
 
 

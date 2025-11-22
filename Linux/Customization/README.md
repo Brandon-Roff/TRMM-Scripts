@@ -14,7 +14,7 @@ This folder is your toolkit for:
 ## 📜 Script List & Descriptions
 | Script | Description |
 |--------|-------------|
-| **Custom_ Bashrc.sh** | Customizes the bashrc file to enhance your shell experience with aliases, functions, and prompt tweaks. |
+| **Customize - Global Bashrc.sh** | Applies a customized global bashrc with aliases & prompt tweaks. |
 
 ---
 

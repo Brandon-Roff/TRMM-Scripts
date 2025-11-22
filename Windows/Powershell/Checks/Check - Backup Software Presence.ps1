@@ -1,0 +1,1 @@
+Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -match 'Backup|Veeam|Acronis|ShadowProtect' } | Select Name, Version | Format-Table

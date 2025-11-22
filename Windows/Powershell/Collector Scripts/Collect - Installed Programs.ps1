@@ -1,0 +1,1 @@
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select DisplayName, DisplayVersion | Sort-Object DisplayName | Format-Table
