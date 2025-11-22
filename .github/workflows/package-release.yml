@@ -145,8 +145,8 @@ jobs:
           PREV='${{ steps.tags.outputs.previous_tag }}'
           CUR='${{ steps.version.outputs.new_tag || steps.tags.outputs.current_tag }}'
           if [ -n "$PREV" ]; then
-            TABLE=$(git diff --name-status "$PREV" "$CUR" | awk 'BEGIN{print "| Status | File |"; print "|--------|------|"} {s=$1; f=$2; if(s=="R"){f=$3} print "| " s " | " f " |"}')
-            COUNTS=$(git diff --name-status "$PREV" "$CUR" | awk '{c[$1]++} END{for(k in c) print k":"c[k]}' | sed 's/^/ - /')
+            TABLE=$(git diff --name-status "$PREV" "$CUR" | awk 'BEGIN{print "| Status | File |"; print "|--------|------|"} {s=$1; f=$2; if(s=="R"){f=$3} emoji=""; if(s=="A")emoji="🆕"; else if(s=="M")emoji="✏️"; else if(s=="D")emoji="🗑️"; else if(s=="R")emoji="🔁"; else if(s=="C")emoji="📄"; print "| " emoji " " s " | " f " |"}')
+            COUNTS=$(git diff --name-status "$PREV" "$CUR" | awk '{c[$1]++} END{for(k in c){emoji=""; if(k=="A")emoji="🆕"; else if(k=="M")emoji="✏️"; else if(k=="D")emoji="🗑️"; else if(k=="R")emoji="🔁"; else if(k=="C")emoji="📄"; print "- " emoji " " k ":" c[k]}}')
             echo "table<<EOF" >> $GITHUB_OUTPUT
             echo "$TABLE" >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
