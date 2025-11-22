@@ -146,16 +146,36 @@ jobs:
           tag_name: ${{ steps.version.outputs.new_tag }}
           name: ${{ steps.version.outputs.new_tag }}
           body: |
-            Automated release generated from push to main.
-            Previous tag: ${{ steps.tags.outputs.previous_tag }}
-            Generated archives and notes included.
+            ## 🚀 TRMM Scripts Release ${{ steps.version.outputs.new_tag }}
+
+            A fresh automated build from the main branch.
+
+            ### Summary
+            - Tag: `${{ steps.version.outputs.new_tag }}`
+            - Previous Tag: `${{ steps.tags.outputs.previous_tag || 'None (initial)' }}`
+            - Workflow Run: `${{ github.run_id }}`
+            - Generated (UTC): $(date -u +%Y-%m-%dT%H:%M:%SZ)
+            - Commit: `${{ github.sha }}`
+
+            ### Archives
+            | Archive | Description |
+            |---------|-------------|
+            | ${{ env.WINDOWS_ARCHIVE }} | All Windows PowerShell & Batch scripts |
+            | ${{ env.LINUX_ARCHIVE }} | All Linux Bash scripts |
+
+            ### Notable Changes Since Previous Tag
+            (See per-platform release notes in the repository `release/` folder for detailed file-level diff.)
+
+            ### Integrity
+            SHA256 checksums are published in `release/SHA256SUMS.txt` and verified during packaging.
+
+            ### Manifest
+            Internal manifest.json retained as artifact (not attached) for debugging and inventory.
+
+            > To skip an auto-release on future pushes, include `[skip release]` in your commit message.
           files: |
             release/${{ env.WINDOWS_ARCHIVE }}
-            release/ReleaseNotes-Windows.md
             release/${{ env.LINUX_ARCHIVE }}
-            release/ReleaseNotes-Linux.md
-            release/SHA256SUMS.txt
-            release/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -165,10 +185,6 @@ jobs:
         with:
           files: |
             release/${{ env.WINDOWS_ARCHIVE }}
-            release/ReleaseNotes-Windows.md
             release/${{ env.LINUX_ARCHIVE }}
-            release/ReleaseNotes-Linux.md
-            release/SHA256SUMS.txt
-            release/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
