@@ -1,0 +1,92 @@
+name: Package Script Release
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up PowerShell
+        uses: PowerShell/PowerShell@v2
+        with:
+          version: 'latest'
+
+      - name: Run Windows packaging script (PowerShell Core)
+        shell: pwsh
+        run: |
+          ./release/Create-Windows-Release.ps1
+
+      - name: Make Linux script executable
+        run: chmod +x release/create-linux-release.sh
+
+      - name: Run Linux packaging script
+        run: ./release/create-linux-release.sh
+
+      - name: Compute checksums
+        run: |
+          cd release
+          for f in TRMM-*Scripts.zip ReleaseNotes-*.md; do
+            sha256sum "$f" >> SHA256SUMS.txt
+          done
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: packaged-scripts
+          path: |
+            release/TRMM-Windows-Scripts.zip
+            release/ReleaseNotes-Windows.md
+            release/TRMM-Linux-Scripts.zip
+            release/ReleaseNotes-Linux.md
+            release/SHA256SUMS.txt
+
+      - name: Attach assets to release (only if release event)
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release/TRMM-Windows-Scripts.zip
+            release/ReleaseNotes-Windows.md
+            release/TRMM-Linux-Scripts.zip
+            release/ReleaseNotes-Linux.md
+            release/SHA256SUMS.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  manifest:
+    runs-on: ubuntu-latest
+    needs: build-and-package
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Generate scripts JSON manifest
+        run: |
+          echo '{"generated":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","scripts":[' > manifest.json
+          first=1
+          for f in $(git ls-files Windows/*.ps1 Windows/**/*.ps1 Windows/*.bat Windows/**/*.bat Linux/**/*.sh Linux/**/*.bash); do
+            size=$(wc -c < "$f")
+            rel="$f"
+            if [ $first -eq 0 ]; then echo ',' >> manifest.json; fi
+            echo '{"path":"'$rel'","size":'$size'}' >> manifest.json
+            first=0
+          done
+          echo ']}' >> manifest.json
+      - name: Upload manifest artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scripts-manifest
+          path: manifest.json
