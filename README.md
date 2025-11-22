@@ -1,4 +1,5 @@
-![TRMM LOGO](https://docs.tacticalrmm.com/images/onit.ico)](https://docs.tacticalrmm.com/)
+[![TRMM LOGO](https://docs.tacticalrmm.com/images/onit.ico)](https://docs.tacticalrmm.com/)
+
 
 # TacticalRMM Scripts Repository
 
