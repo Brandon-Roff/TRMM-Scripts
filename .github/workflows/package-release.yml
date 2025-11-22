@@ -99,7 +99,7 @@ jobs:
             first=0
           done
           echo ']}' >> manifest.json
-          cat manifest.json
+          echo "Manifest:" && cat manifest.json
 
       - name: Upload artifacts (always)
         uses: actions/upload-artifact@v4
@@ -139,6 +139,25 @@ jobs:
           git tag "$NEW_TAG"
           git push origin "$NEW_TAG"
 
+      - name: Build changes markdown
+        id: changes
+        run: |
+          PREV='${{ steps.tags.outputs.previous_tag }}'
+          CUR='${{ steps.version.outputs.new_tag || steps.tags.outputs.current_tag }}'
+          if [ -n "$PREV" ]; then
+            TABLE=$(git diff --name-status "$PREV" "$CUR" | awk 'BEGIN{print "| Status | File |"; print "|--------|------|"} {s=$1; f=$2; if(s=="R"){f=$3} print "| " s " | " f " |"}')
+            COUNTS=$(git diff --name-status "$PREV" "$CUR" | awk '{c[$1]++} END{for(k in c) print k":"c[k]}' | sed 's/^/ - /')
+            echo "table<<EOF" >> $GITHUB_OUTPUT
+            echo "$TABLE" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "counts<<EOF" >> $GITHUB_OUTPUT
+            echo "$COUNTS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "initial=false" >> $GITHUB_OUTPUT
+          else
+            echo "initial=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Auto create release from push
         if: steps.version.outputs.skip != 'true' && steps.version.outputs.new_tag && github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v1
@@ -146,33 +165,21 @@ jobs:
           tag_name: ${{ steps.version.outputs.new_tag }}
           name: ${{ steps.version.outputs.new_tag }}
           body: |
-            ## 🚀 TRMM Scripts Release ${{ steps.version.outputs.new_tag }}
+            ## 🚀 TRMM Scripts ${{ steps.version.outputs.new_tag }}
+            Prev Tag: `${{ steps.tags.outputs.previous_tag || '∅ initial' }}`
+            Commit: `${{ github.sha }}` | Run: `${{ github.run_id }}`
 
-            A fresh automated build from the main branch.
+            ### 🔄 Changes
+            **Status Legend:** 🆕 Added | ✏️ Modified | 🗑️ Deleted | 🔁 Renamed
+            ${{ steps.changes.outputs.initial == 'true' && 'Initial release – all current files included.' || '' }}
+            ${{ steps.changes.outputs.initial == 'true' && '' || '**Counts:**' }}
+            ${{ steps.changes.outputs.initial == 'true' && '' || steps.changes.outputs.counts }}
+            ${{ steps.changes.outputs.initial == 'true' && '' || steps.changes.outputs.table }}
 
-            ### Summary
-            - Tag: `${{ steps.version.outputs.new_tag }}`
-            - Previous Tag: `${{ steps.tags.outputs.previous_tag || 'None (initial)' }}`
-            - Workflow Run: `${{ github.run_id }}`
-            - Generated (UTC): $(date -u +%Y-%m-%dT%H:%M:%SZ)
-            - Commit: `${{ github.sha }}`
+            ### 📦 Archives
+            Windows: ${{ env.WINDOWS_ARCHIVE }} | Linux: ${{ env.LINUX_ARCHIVE }}
 
-            ### Archives
-            | Archive | Description |
-            |---------|-------------|
-            | ${{ env.WINDOWS_ARCHIVE }} | All Windows PowerShell & Batch scripts |
-            | ${{ env.LINUX_ARCHIVE }} | All Linux Bash scripts |
-
-            ### Notable Changes Since Previous Tag
-            (See per-platform release notes in the repository `release/` folder for detailed file-level diff.)
-
-            ### Integrity
-            SHA256 checksums are published in `release/SHA256SUMS.txt` and verified during packaging.
-
-            ### Manifest
-            Internal manifest.json retained as artifact (not attached) for debugging and inventory.
-
-            > To skip an auto-release on future pushes, include `[skip release]` in your commit message.
+            ✨ Automation complete.
           files: |
             release/${{ env.WINDOWS_ARCHIVE }}
             release/${{ env.LINUX_ARCHIVE }}
