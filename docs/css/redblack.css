@@ -1,0 +1,55 @@
+:root {
+  --md-default-bg-color: #0d0d0d !important;
+  --md-primary-fg-color: #ff0000 !important;
+  --md-accent-fg-color: #ff1a1a !important;
+}
+.md-main {
+  background-color: #0d0d0d !important;
+}
+.md-sidebar {
+  background-color: #0b0b0b !important;
+  border-right: 1px solid #1a1a1a;
+}
+.md-nav__link {
+  color: #ccc !important;
+}
+.md-nav__link:hover {
+  color: #ff0000 !important;
+}
+h1, h2, h3, h4 {
+  color: #ff0000 !important;
+}
+.md-typeset code, .highlight pre {
+  background-color: #111 !important;
+  color: #ff5555 !important;
+  border: 1px solid #330000 !important;
+  border-radius: 6px;
+}
+.md-button {
+  background-color: #ff0000 !important;
+  color: #fff !important;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.md-button:hover {
+  background-color: #cc0000 !important;
+}
+.md-typeset table {
+  background-color: #101010 !important;
+  border: 1px solid #2e2e2e;
+}
+.md-typeset th {
+  background-color: #1a1a1a !important;
+  color: #ff0000 !important;
+}
+.md-typeset td {
+  border: 1px solid #222 !important;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #330000 !important;
+}
+.md-typeset a:hover {
+  color: #ff0000 !important;
+  text-shadow: 0 0 8px #ff0000;
+}

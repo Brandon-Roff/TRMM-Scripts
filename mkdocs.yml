@@ -1,0 +1,39 @@
+site_name: "TRMM Scripts Documentation"
+site_description: "Windows & Linux scripting for Tactical RMM"
+repo_url: https://github.com/Brandon-Roff/TRMM-Scripts
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: red
+      accent: red
+    - scheme: slate
+      primary: red
+      accent: red
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  custom_dir: overrides
+nav:
+  - Home: index.md
+  - Windows Scripts:
+      - Overview: windows/index.md
+  - Linux Scripts:
+      - Overview: linux/index.md
+  - Naming Convention: naming-convention.md
+  - Script Catalog: catalog.md
+  - Quick Start: quick-start.md
+  - Contributing: contributing.md
+  - License: license.md
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+extra_css:
+  - css/redblack.css
+plugins:
+  - search

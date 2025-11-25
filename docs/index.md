@@ -1,28 +1,39 @@
-# TRMM Scripts Documentation
+---
+title: TRMM Scripts Documentation
+description: Windows and Linux scripting for Tactical RMM
+---
 
-Welcome to the TRMM Scripts documentation site.
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:18px">
+  <img src="assets/logo.svg" alt="logo" width="72" height="72" style="border-radius:12px;background:#200000;padding:8px"/>
+  <div>
+    <h1 style="margin:0;color:#ff4d4d">TRMM Scripts Documentation</h1>
+    <p style="margin:4px 0 0;color:#bbb">A curated collection of automation scripts for Tactical RMM. Red & black theme.</p>
+  </div>
+</div>
 
-## Overview
-This site provides:
-- 🔧 Usage guidance for Windows & Linux script collections
-- 🏷 Naming convention reference
-- 📦 Release automation details
-- 📚 Full catalog of available scripts
+## Quick links
 
-## Sections
-- [Linux Scripts](linux.md)
-- [Windows Scripts](windows.md)
+- [Windows Scripts](windows/index.md)
+- [Linux Scripts](linux/index.md)
+- [Script Catalog](catalog.md)
 - [Naming Convention](naming-convention.md)
-- [Script Catalog](script-catalog.md)
 
-## Quick Start
-Download the latest archives from the Releases page or clone the repository:
+---
+
+## Featured
+
+### 🔥 Recent release
+Check the repository Releases for the latest packaged script archives.
+
+### 🧩 How the catalog is generated
+Run the included generator script `scripts/generate_catalog.py` locally or let GitHub Actions run it to produce `docs/catalog.md` from repository filenames.
+
+---
+
+## Getting started
+
 ```bash
 git clone https://github.com/Brandon-Roff/TRMM-Scripts.git
+pip install mkdocs mkdocs-material pymdown-extensions
+mkdocs serve
 ```
-
-## Contributing
-Open issues or pull requests for new script ideas, improvements, or fixes.
-
-## License
-MIT (adjust if different).
