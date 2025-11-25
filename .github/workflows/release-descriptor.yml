@@ -1,0 +1,83 @@
+name: Release From Descriptor
+
+on:
+  push:
+    paths:
+      - 'release.md'
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-from-descriptor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Parse version
+        id: parse
+        run: |
+          VER=$(grep -E '^Version:' release.md | head -n1 | sed 's/Version:\s*//')
+          if [ -z "$VER" ]; then echo "No Version line found"; exit 1; fi
+          echo "version=$VER" >> $GITHUB_OUTPUT
+          echo "Parsed version: $VER"
+          # Detect if tag exists
+          if git rev-parse "$VER" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Generate diff body
+        id: body
+        run: |
+          VER='${{ steps.parse.outputs.version }}'
+          PREV_TAG=$(git tag --sort=-creatordate | grep -v "$VER" | head -n1 || true)
+          { echo "body<<EOF";
+            echo "## 🚀 TRMM Scripts $VER";
+            echo "Version: $VER";
+            echo "Previous: ${PREV_TAG:-none}";
+            echo "";
+            if [ -n "$PREV_TAG" ]; then
+              echo "### 🔄 Changes Since $PREV_TAG";
+              git diff --name-status "$PREV_TAG" HEAD | awk 'BEGIN{print "| Status | File |"; print "|--------|------|"} {s=$1; f=$2; if(s=="R"){f=$3} emoji=""; if(s=="A")emoji="🆕"; else if(s=="M")emoji="✏️"; else if(s=="D")emoji="🗑️"; else if(s=="R")emoji="🔁"; print "| " emoji " " s " | " f " |"}'
+              echo "";
+            else
+              echo "Initial release version descriptor.";
+            fi
+            echo "Generated from release.md Version line only.";
+            echo "EOF"; } >> $GITHUB_OUTPUT
+
+      - name: Package scripts
+        run: |
+          ./release/Create-Windows-Release.ps1 || true
+          chmod +x release/create-linux-release.sh
+          ./release/create-linux-release.sh || true
+          cd release
+          sha256sum TRMM-*Scripts.zip > SHA256SUMS.txt || true
+
+      - name: Create tag
+        if: steps.parse.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git tag "${{ steps.parse.outputs.version }}"
+          git push origin "${{ steps.parse.outputs.version }}"
+
+      - name: Publish release
+        if: steps.parse.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.parse.outputs.version }}
+          body: ${{ steps.body.outputs.body }}
+          files: |
+            release/TRMM-Windows-Scripts.zip
+            release/TRMM-Linux-Scripts.zip
+            release/SHA256SUMS.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
