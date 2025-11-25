@@ -1,0 +1,66 @@
+name: Deploy MkDocs Site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: mkdocs
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate dynamic script catalog
+        run: |
+          set -euo pipefail
+          OUT=docs/catalog.md
+          echo "# Script Catalog" > $OUT
+          echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $OUT
+          echo >> $OUT
+          echo "| Path | Size (KB) |" >> $OUT
+            echo "|------|-----------|" >> $OUT
+          git ls-files | grep -E '\.(sh|bash|ps1|bat)$' | while read -r f; do
+            sz=$(wc -c < "$f")
+            kb=$(awk -v s=$sz 'BEGIN{printf "%.2f", s/1024}')
+            echo "| $f | $kb |" >> $OUT
+          done
+
+      - name: Build MkDocs site
+        run: |
+          mkdocs build --strict
+          ls -R site | head -100
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

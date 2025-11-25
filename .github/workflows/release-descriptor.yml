@@ -1,18 +1,22 @@
-name: Release From Descriptor
+name: Release (Descriptor)
 
 on:
   push:
     paths:
-      - 'release.md'
-    branches:
-      - main
+      - release.md
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
+  packages: read
+
+concurrency:
+  group: release-descriptor
+  cancel-in-progress: true
 
 jobs:
-  release-from-descriptor:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,63 +25,76 @@ jobs:
           fetch-depth: 0
 
       - name: Parse version
-        id: parse
+        id: version
         run: |
-          VER=$(grep -E '^Version:' release.md | head -n1 | sed 's/Version:\s*//')
-          if [ -z "$VER" ]; then echo "No Version line found"; exit 1; fi
-          echo "version=$VER" >> $GITHUB_OUTPUT
-          echo "Parsed version: $VER"
-          # Detect if tag exists
-          if git rev-parse "$VER" >/dev/null 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-      - name: Generate diff body
-        id: body
-        run: |
-          VER='${{ steps.parse.outputs.version }}'
-          PREV_TAG=$(git tag --sort=-creatordate | grep -v "$VER" | head -n1 || true)
-          { echo "body<<EOF";
-            echo "## 🚀 TRMM Scripts $VER";
-            echo "Version: $VER";
-            echo "Previous: ${PREV_TAG:-none}";
-            echo "";
-            if [ -n "$PREV_TAG" ]; then
-              echo "### 🔄 Changes Since $PREV_TAG";
-              git diff --name-status "$PREV_TAG" HEAD | awk 'BEGIN{print "| Status | File |"; print "|--------|------|"} {s=$1; f=$2; if(s=="R"){f=$3} emoji=""; if(s=="A")emoji="🆕"; else if(s=="M")emoji="✏️"; else if(s=="D")emoji="🗑️"; else if(s=="R")emoji="🔁"; print "| " emoji " " s " | " f " |"}'
-              echo "";
-            else
-              echo "Initial release version descriptor.";
-            fi
-            echo "Generated from release.md Version line only.";
-            echo "EOF"; } >> $GITHUB_OUTPUT
+          set -euo pipefail
+          VERSION_LINE="$(grep -E '^[Vv]ersion:' release.md || true)"
+          if [ -z "${VERSION_LINE}" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          VERSION="$(echo "${VERSION_LINE}" | cut -d':' -f2 | tr -d '[:space:]')"
+          if ! echo "${VERSION}" | grep -Eq '^v[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$'; then echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git fetch --tags --quiet
+          if git rev-parse -q --verify "refs/tags/${VERSION}" >/dev/null; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "version=${VERSION}" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
 
-      - name: Package scripts
+      - name: Stop (skip)
+        if: steps.version.outputs.skip == 'true'
+        run: echo "Skipping release - no new version."
+
+      - name: Build archives + diff
+        if: steps.version.outputs.skip != 'true'
         run: |
-          ./release/Create-Windows-Release.ps1 || true
-          chmod +x release/create-linux-release.sh
-          ./release/create-linux-release.sh || true
-          cd release
-          sha256sum TRMM-*Scripts.zip > SHA256SUMS.txt || true
+          set -euo pipefail
+          mkdir -p release_out
+          zip -r release_out/TRMM-Windows-Scripts.zip Windows -x "*/.git/*"
+          zip -r release_out/TRMM-Linux-Scripts.zip Linux -x "*/.git/*"
+          PREV="$(git tag --sort=-creatordate | grep -v "^${{ steps.version.outputs.version }}$" | grep '^v' | head -1 || true)"
+          if [ -n "${PREV}" ]; then git diff --name-status "${PREV}"...HEAD > release_out/diff.txt; else git diff --name-status HEAD > release_out/diff.txt; fi
+          A=$(grep '^A' release_out/diff.txt | wc -l | tr -d ' ' || true)
+          M=$(grep '^M' release_out/diff.txt | wc -l | tr -d ' ' || true)
+          D=$(grep '^D' release_out/diff.txt | wc -l | tr -d ' ' || true)
+          R=$(grep '^R' release_out/diff.txt | wc -l | tr -d ' ' || true)
+          {
+            echo "## 🚀 Release ${{ steps.version.outputs.version }}"
+            [ -n "${PREV}" ] && echo "Previous Tag: ${PREV}" || echo "Initial Release"
+            echo
+            echo "### 📊 Changes"
+            echo "🆕 Added: ${A} | ✏️ Modified: ${M} | 🗑️ Deleted: ${D} | 🔁 Renamed: ${R}"
+            echo
+            echo "### 📄 Files"
+            if [ -s release_out/diff.txt ]; then
+              echo '| Status | File |'
+              echo '|--------|------|'
+              awk '{c=$1;f=$2;e=(c=="A"?"🆕":c=="M"?"✏️":c=="D"?"🗑️":c=="R"?"🔁":"📄");printf("| %s | %s |\n",e,f);}' release_out/diff.txt
+            else
+              echo "_No changes_"
+            fi
+            echo
+            echo "### 📦 Archives"
+            echo "- TRMM-Windows-Scripts.zip"
+            echo "- TRMM-Linux-Scripts.zip"
+          } > release_out/body.md
+          sha256sum release_out/*.zip > release_out/SHA256SUMS.txt
 
       - name: Create tag
-        if: steps.parse.outputs.exists == 'false'
+        if: steps.version.outputs.skip != 'true'
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git tag "${{ steps.parse.outputs.version }}"
-          git push origin "${{ steps.parse.outputs.version }}"
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.version.outputs.version }}"
+          git push origin "${{ steps.version.outputs.version }}"
 
       - name: Publish release
-        if: steps.parse.outputs.exists == 'false'
+        if: steps.version.outputs.skip != 'true'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.parse.outputs.version }}
-          body: ${{ steps.body.outputs.body }}
+          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
+          body_path: release_out/body.md
           files: |
-            release/TRMM-Windows-Scripts.zip
-            release/TRMM-Linux-Scripts.zip
-            release/SHA256SUMS.txt
+            release_out/TRMM-Windows-Scripts.zip
+            release_out/TRMM-Linux-Scripts.zip
+            release_out/SHA256SUMS.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
