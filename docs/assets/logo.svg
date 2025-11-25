@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
-  <rect width="240" height="240" rx="20" fill="#0b0b0b"/>
-  <circle cx="120" cy="80" r="40" fill="#ff0000"/>
-  <rect x="40" y="140" width="160" height="40" rx="8" fill="#200000"/>
-  <text x="120" y="170" font-family="Roboto, sans-serif" font-size="22" fill="#ff6666" text-anchor="middle">TRMM</text>
-</svg>
