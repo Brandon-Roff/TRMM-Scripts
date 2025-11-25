@@ -1,0 +1,46 @@
+name: Deploy Docs Site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate script catalog
+        run: |
+          mkdir -p docs
+          echo "# Script Catalog" > docs/script-catalog.md
+          echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> docs/script-catalog.md
+          echo "" >> docs/script-catalog.md
+          echo "| Path | Size (KB) |" >> docs/script-catalog.md
+          echo "|------|-----------|" >> docs/script-catalog.md
+          git ls-files | grep -E '\.(sh|bash|ps1|bat)$' | while read -r f; do
+            sz=$(wc -c < "$f")
+            kb=$(awk -v s=$sz 'BEGIN{printf "%.2f", s/1024}')
+            echo "| $f | $kb |" >> docs/script-catalog.md
+          done
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
