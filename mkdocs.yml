@@ -16,6 +16,11 @@ theme:
   logo: assets/logo.svg
   favicon: assets/favicon.svg
   custom_dir: overrides
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
 nav:
   - Home: index.md
   - Windows Scripts:
@@ -29,10 +34,13 @@ nav:
   - License: license.md
 markdown_extensions:
   - admonition
-  - pymdownx.superfences
-  - pymdownx.tabbed
   - toc:
       permalink: true
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.extra
 extra_css:
   - css/redblack.css
 plugins:
