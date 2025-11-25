@@ -1,0 +1,17 @@
+:root{
+  --md-primary-fg-color: #b00020; /* deep red */
+  --md-primary-fg-color--light: #ff1744;
+  --md-primary-fg-color--dark: #7f0015;
+  --md-accent-fg-color: #ff1744;
+}
+
+/* Dark scheme tweaks */
+[data-md-color-scheme="slate"] {
+  --md-hue: 0;
+  --md-default-fg-color: #e0e0e0;
+  --md-default-bg-color: #0b0b0c;
+  --md-code-bg-color: #151515;
+}
+
+/* Headings accent */
+h1, h2, h3, h4 { color: var(--md-primary-fg-color); }

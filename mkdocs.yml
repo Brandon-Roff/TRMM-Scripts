@@ -17,28 +17,17 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-  font:
-    text: Roboto
-    code: Roboto Mono
-  logo: assets/logo.svg
-  favicon: assets/favicon.svg
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
     - content.code.copy
-    - content.action.edit
+extra_css:
+  - css/redblack.css
 nav:
   - Home: index.md
-  - Windows Scripts:
-      - Overview: windows/index.md
-  - Linux Scripts:
-      - Overview: linux/index.md
   - Naming Convention: naming-convention.md
-  - Script Catalog: catalog.md
   - Quick Start: quick-start.md
-  - Contributing: contributing.md
-  - License: license.md
 markdown_extensions:
   - admonition
   - toc:
@@ -48,19 +37,5 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.extra
-extra_css:
-  - css/redblack.css
 plugins:
   - search
-  - git-revision-date-localized:
-      fallback_to_build_date: true
-      type: datetime
-      timezone: UTC
-      locale: en
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Brandon-Roff/TRMM-Scripts
-      name: GitHub Repository
-  copyright: "© 2025 TRMM Scripts"
